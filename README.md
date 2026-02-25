@@ -1,25 +1,24 @@
-# 🤖 VEX V5 聖路易斯機器人競賽 行程規劃
+# 🤖 VEX V5 聖路易斯世界賽 × 芝加哥探索行程
 
-2025 春季 VEX V5 Robotics Championship 遠征行程網頁。
+2026 春季 VEX V5 Robotics World Championship 國中團隊遠征行程網頁。
 
 ## 📋 行程總覽
 
 | 項目 | 內容 |
 |------|------|
-| **目的地** | St. Louis, Missouri, USA |
-| **賽事** | VEX V5 Robotics Championship |
-| **總天數** | 10 天 |
+| **目的地** | St. Louis, MO → Chicago, IL |
+| **賽事** | VEX V5 Robotics World Championship 2026 |
+| **總天數** | 9 天 |
 | **比賽日** | 4/25 – 4/27（3 天） |
-| **路線** | 台灣 ✈ 芝加哥 🚌 聖路易斯 |
+| **交通** | 全程遊覽車接駁 🚌 |
+| **路線** | 台灣 ✈ 聖路易斯 🚌 芝加哥 ✈ 台灣 |
 
 ## 🗓️ 行程階段
 
-1. **✈ 飛行日** — 4/22 台灣直飛芝加哥，轉公路至聖路易斯
-2. **🔧 賽前準備** — 4/23–24 機器人備戰、場地踩點
-3. **🏆 正式比賽** — 4/25–27 資格賽、Skills 挑戰、淘汰賽
-4. **🌉 聖路易斯觀光** — 4/28–29 Gateway Arch、Forest Park、The Hill
-5. **🏙️ 芝加哥觀光** — 4/30 Millennium Park、Deep Dish Pizza
-6. **✈ 回程** — 5/1 芝加哥飛回台灣
+1. **✈ 啟程與賽前準備** — 4/22-24 抵達聖路易斯、報到、備戰
+2. **🏆 VEX V5 世界錦標賽** — 4/25-27 資格賽、Skills、淘汰賽
+3. **🚌 中西部工程探索** — 4/28-30 City Museum、林肯博物館、MSI、Willis Tower、建築遊船、Fashion Outlets
+4. **🛬 滿載而歸** — 5/1-2 返抵台灣
 
 ## 🚀 使用方式
 
