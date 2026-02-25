@@ -614,98 +614,234 @@
     }
 
     /* PLAN SELECTOR */
+    .plan-selector-section {
+      background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 50%, #16213e 100%);
+      padding: 60px 20px;
+      margin-top: 3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plan-selector-section::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(46, 196, 182, 0.08) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      border-radius: 50%;
+    }
+
+    .plan-selector-section::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(244, 162, 97, 0.06) 0%, transparent 70%);
+      bottom: -150px;
+      left: -100px;
+      border-radius: 50%;
+    }
+
     .plan-selector {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 40px 20px 10px;
+      position: relative;
+      z-index: 1;
     }
 
     .plan-selector-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 36px;
     }
 
-    .plan-selector-header h3 {
-      font-size: 1.1rem;
-      font-weight: 400;
+    .plan-selector-header h2 {
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .plan-selector-header .line {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      margin: 12px auto;
+    }
+
+    .plan-selector-header p {
       color: #888;
-      letter-spacing: 1px;
-    }
-
-    .plan-tabs {
-      display: flex;
-      gap: 0;
-      max-width: 600px;
-      margin: 0 auto;
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .plan-tab {
-      flex: 1;
-      padding: 16px 20px;
-      text-align: center;
-      cursor: pointer;
-      background: rgba(255, 255, 255, 0.03);
-      border: none;
-      color: #888;
-      font-family: 'Noto Sans TC', sans-serif;
       font-size: 0.9rem;
-      transition: all 0.3s ease;
+    }
+
+    .plan-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .plan-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: all 0.35s ease;
       position: relative;
+      overflow: hidden;
+      font-family: 'Noto Sans TC', sans-serif;
+      text-align: left;
     }
 
-    .plan-tab:first-child {
-      border-right: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .plan-tab:hover {
-      background: rgba(255, 255, 255, 0.06);
-      color: #ccc;
-    }
-
-    .plan-tab.active {
-      background: linear-gradient(135deg, rgba(46, 196, 182, 0.15), rgba(15, 52, 96, 0.3));
-      color: var(--teal);
-      font-weight: 700;
-    }
-
-    .plan-tab.active::after {
+    .plan-card::before {
       content: '';
       position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
       bottom: 0;
-      left: 20%;
-      right: 20%;
-      height: 2px;
-      background: var(--teal);
-      border-radius: 2px;
+      background: linear-gradient(135deg, transparent 60%, rgba(46, 196, 182, 0.05));
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
 
-    .plan-tab .tab-label {
+    .plan-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .plan-card:hover::before {
+      opacity: 1;
+    }
+
+    .plan-card.active {
+      border-color: var(--teal);
+      background: rgba(46, 196, 182, 0.08);
+      box-shadow: 0 0 30px rgba(46, 196, 182, 0.15), 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .plan-card.active.plan-b-card {
+      border-color: var(--gold);
+      background: rgba(244, 162, 97, 0.08);
+      box-shadow: 0 0 30px rgba(244, 162, 97, 0.15), 0 8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .plan-card-badge {
+      display: inline-block;
       font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      display: block;
-      margin-bottom: 4px;
+      font-size: 0.65rem;
+      letter-spacing: 3px;
       text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 16px;
     }
 
-    .plan-tab .tab-desc {
-      font-size: 0.75rem;
-      opacity: 0.7;
+    .plan-card.active .plan-card-badge {
+      background: rgba(46, 196, 182, 0.2);
+      color: var(--teal);
+    }
+
+    .plan-card:not(.active) .plan-card-badge {
+      background: rgba(255, 255, 255, 0.06);
+      color: #666;
+    }
+
+    .plan-card.active.plan-b-card .plan-card-badge {
+      background: rgba(244, 162, 97, 0.2);
+      color: var(--gold);
+    }
+
+    .plan-card-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .plan-card-title {
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plan-card-sub {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 16px;
+      line-height: 1.5;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plan-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .plan-card-tag {
+      font-size: 0.7rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #999;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.5px;
+    }
+
+    .plan-card.active .plan-card-tag {
+      background: rgba(46, 196, 182, 0.12);
+      color: var(--teal);
+    }
+
+    .plan-card.active.plan-b-card .plan-card-tag {
+      background: rgba(244, 162, 97, 0.12);
+      color: var(--gold);
+    }
+
+    .plan-card-check {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .plan-card.active .plan-card-check {
+      border-color: var(--teal);
+      background: var(--teal);
+      color: #000;
+    }
+
+    .plan-card.active.plan-b-card .plan-card-check {
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #000;
     }
 
     .plan-summary {
-      max-width: 600px;
-      margin: 20px auto 0;
+      max-width: 900px;
+      margin: 24px auto 0;
       text-align: center;
-      padding: 16px 20px;
-      background: rgba(46, 196, 182, 0.06);
-      border: 1px solid rgba(46, 196, 182, 0.12);
-      border-radius: 6px;
-      font-size: 0.8rem;
-      color: #999;
+      padding: 14px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #bbb;
       line-height: 1.6;
       transition: all 0.3s ease;
     }
@@ -762,6 +898,68 @@
       color: #9b59b6;
     }
 
+    /* EXPANDABLE ATTRACTION DETAILS */
+    .attraction-toggle {
+      cursor: pointer;
+      position: relative;
+    }
+
+    .attraction-toggle::after {
+      content: ' ▼ 點擊看更多';
+      font-size: 0.7rem;
+      color: var(--teal);
+      opacity: 0.6;
+      font-weight: 400;
+      transition: opacity 0.2s;
+    }
+
+    .attraction-toggle:hover::after {
+      opacity: 1;
+    }
+
+    .attraction-toggle.open::after {
+      content: ' ▲ 收合';
+    }
+
+    .attraction-detail {
+      display: none;
+      margin-top: 10px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: #bbb;
+      line-height: 1.8;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .attraction-detail.open {
+      display: block;
+    }
+
+    .attraction-detail .detail-row {
+      display: flex;
+      gap: 8px;
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .attraction-detail .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .attraction-detail .detail-icon {
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+
+    .attraction-detail .detail-highlight {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       .day-card {
@@ -776,13 +974,12 @@
         gap: 30px;
       }
 
-      .plan-tabs {
-        flex-direction: column;
+      .plan-cards {
+        grid-template-columns: 1fr;
       }
 
-      .plan-tab:first-child {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      .plan-card-icon {
+        font-size: 2.5rem;
       }
     }
   </style>
@@ -1023,27 +1220,52 @@
     </div>
 
     <!-- PLAN SELECTOR -->
+  </div><!-- close timeline-section -->
+
+  <div class="plan-selector-section">
     <div class="plan-selector">
       <div class="plan-selector-header">
-        <h3>🗺️ 選擇賽後行程方案</h3>
+        <h2>🗺️ 選擇賽後行程方案</h2>
+        <div class="line"></div>
+        <p>比賽結束後，你們想怎麼玩？點選以下兩種方案</p>
       </div>
-      <div class="plan-tabs">
-        <button class="plan-tab active" onclick="switchPlan('a')">
-          <span class="tab-label">方案 A</span>
-          聖路易斯深度觀光
-          <div class="tab-desc">10天 · Gateway Arch · Forest Park</div>
-        </button>
-        <button class="plan-tab" onclick="switchPlan('b')">
-          <span class="tab-label">方案 B</span>
-          科學教育 × 公路冒險
-          <div class="tab-desc">9天 · City Museum · 林肯博物館 · MSI</div>
-        </button>
+      <div class="plan-cards">
+        <div class="plan-card active" onclick="switchPlan('a')" id="card-a">
+          <div class="plan-card-check">✓</div>
+          <span class="plan-card-badge">方案 A</span>
+          <span class="plan-card-icon">🌉</span>
+          <div class="plan-card-title">聖路易斯深度觀光</div>
+          <div class="plan-card-sub">在聖路易斯多待兩天，深入探索 Gateway Arch、Forest Park 世界級免費景點，再北返芝加哥。</div>
+          <div class="plan-card-tags">
+            <span class="plan-card-tag">🌉 Gateway Arch</span>
+            <span class="plan-card-tag">🌲 Forest Park</span>
+            <span class="plan-card-tag">🍝 The Hill</span>
+            <span class="plan-card-tag">🏙️ 芝加哥</span>
+            <span class="plan-card-tag">📅 10天</span>
+          </div>
+        </div>
+        <div class="plan-card plan-b-card" onclick="switchPlan('b')" id="card-b">
+          <div class="plan-card-check">✓</div>
+          <span class="plan-card-badge">方案 B</span>
+          <span class="plan-card-icon">🔬</span>
+          <div class="plan-card-title">科學教育 × 公路冒險</div>
+          <div class="plan-card-sub">工業風遊樂場 City Museum、林肯總統博物館、芝加哥科學與工業博物館，STEM 教育之旅。</div>
+          <div class="plan-card-tags">
+            <span class="plan-card-tag">🏭 City Museum</span>
+            <span class="plan-card-tag">🏤 林肯博物館</span>
+            <span class="plan-card-tag">🔬 MSI 科博館</span>
+            <span class="plan-card-tag">🏗️ 建築遊船</span>
+            <span class="plan-card-tag">📅 9天</span>
+          </div>
+        </div>
       </div>
       <div class="plan-summary" id="plan-summary">
         ✅ 目前選擇：<strong>方案 A</strong> — 聖路易斯 2 天觀光 + 芝加哥 1 天，共 10 天行程
       </div>
     </div>
+  </div>
 
+  <div class="timeline-section">
     <!-- PLAN A CONTENT -->
     <div id="plan-a" class="plan-content active">
 
@@ -1062,9 +1284,31 @@
           <span class="day-tag tag-stl">聖路易斯 Day 1</span>
           <div class="day-title">🌉 Gateway Arch + 市中心探索</div>
           <ul class="day-items">
-            <li><strong>早上：Gateway Arch</strong> — 乘坐特殊膠囊纜車登頂（192m），俯瞰密西西比河與市區全景（提早訂票！$15-19/人）</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">早上：Gateway Arch</strong> —
+              乘坐特殊膠囊纜車登頂（192m），俯瞰密西西比河與市區全景
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票 <span
+                      class="detail-highlight">$15-19/人</span>，建議提前上網訂票！旺季時段容易客滿</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>營業時間 9:00-18:00，登頂搭乘時間約 4 分鐘</span>
+                </div>
+                <div class="detail-row"><span class="detail-icon">⭐</span>
+                  <span>膠囊纜車空間狹小但超酷！頂端觀景窗可同時看到東邊密西西比河和西邊市區全景</span>
+                </div>
+                <div class="detail-row"><span class="detail-icon">📸</span> <span>最佳拍照時間：日落前 1 小時，Arch
+                    的金屬表面會反射夕陽餘暉</span></div>
+              </div>
+            </li>
             <li>Arch 下方博物館：西進運動與美國移民歷史免費參觀</li>
-            <li><strong>午餐：Pappy's Smokehouse</strong> — 聖路易斯招牌 BBQ 肋排</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">午餐：Pappy's Smokehouse</strong> — 聖路易斯招牌
+              BBQ 肋排
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🍖</span> <span>全美排名前 10 的 BBQ 餐廳，<span
+                      class="detail-highlight">肋排（Ribs）</span>和 Brisket 必點</span></div>
+                <div class="detail-row"><span class="detail-icon">⚠️</span> <span>超級熱門！建議 11:00 開門前就去排隊，賣完就關門</span>
+                </div>
+                <div class="detail-row"><span class="detail-icon">💰</span> <span>人均約 $15-25 USD</span></div>
+              </div>
+            </li>
             <li><strong>下午：聖路易斯舊法院</strong>（Old Courthouse）— 歷史建築免費入場</li>
             <li>沿密西西比河畔散步、拍攝 Arch 倒影</li>
             <li><strong>晚餐：Soulard 區</strong> — 聖路易斯最有歷史的街區，法式風情餐廳</li>
@@ -1082,13 +1326,50 @@
           <span class="day-tag tag-stl">聖路易斯 Day 2</span>
           <div class="day-title">🌲 Forest Park + The Hill 義大利區</div>
           <ul class="day-items">
-            <li><strong>上午：Forest Park</strong> — 比紐約中央公園還大的城市綠地（全部免費！）</li>
-            <li><strong>聖路易斯動物園</strong>（Saint Louis Zoo）— 全美評價最高的免費動物園</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">上午：Forest Park</strong> —
+              比紐約中央公園還大的城市綠地（全部免費！）
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🌲</span> <span>佔地 <span
+                      class="detail-highlight">1,371 英畝</span>，比紐約中央公園大 500 英畝！曾為 1904 年世界博覽會場地</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>公園及園內多數景點<span
+                      class="detail-highlight">完全免費</span>，包含動物園、藝術博物館、科學中心</span></div>
+                <div class="detail-row"><span class="detail-icon">🚶</span> <span>建議路線：Art Hill 拍照 → 動物園 → 博物館，步行約 2-3
+                    小時</span></div>
+              </div>
+            </li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">聖路易斯動物園</strong>（Saint Louis Zoo）—
+              全美評價最高的免費動物園
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🐼</span> <span>超過 <span
+                      class="detail-highlight">16,000 隻動物</span>，含珍稀物種如大熊貓、北極熊</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票免費！部分特別體驗另收費</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>營業時間 9:00-17:00，建議預留 2-3 小時</span>
+                </div>
+              </div>
+            </li>
             <li><strong>聖路易斯藝術博物館</strong>（SLAM）— 免費入場，館藏超過3萬件</li>
             <li><strong>Art Hill</strong> — 俯瞰大倒影池的最佳打卡點</li>
             <li><strong>午餐：The Hill 義大利區</strong> — 聖路易斯最正統的義式料理聚集地，必嚐 Toasted Ravioli（聖路易斯獨創的炸義大利餃）！</li>
-            <li><strong>下午：City Museum</strong> — 超創意的成人遊樂場，大人小孩都瘋狂！或前往 Busch Stadium 觀賞 Cardinals 棒球賽</li>
-            <li><strong>晚餐：Ted Drewes Frozen Custard</strong> — 聖路易斯傳說等級冰淇淋，必吃！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">下午：City Museum</strong> —
+              超創意的成人遊樂場，大人小孩都瘋狂！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🏭</span> <span>由舊鞋廠改建的<span
+                      class="detail-highlight">巨大工業風遊樂場</span>！充滿廢棄飛機、金屬溜滑梯、工業機械零件拼湊的立體迷宮</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票約 <span
+                      class="detail-highlight">$18-22/人</span></span></div>
+                <div class="detail-row"><span class="detail-icon">⭐</span> <span>非常適合 VEX 選手！激發對機構設計與空間結構的想像力</span>
+                </div>
+              </div>
+            </li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">晚餐：Ted Drewes Frozen Custard</strong> —
+              聖路易斯傳說等級冰淇淋，必吃！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🍦</span> <span>自 1929 年開業的<span
+                      class="detail-highlight">冰淇淋傳奇</span>！招牌是 "Concrete"（杯裝冰淇淋倒過來也不會掉）</span></div>
+                <div class="detail-row"><span class="detail-icon">💰</span> <span>約 $5-8 USD/份，推薦口味：Cardinal
+                    Sin（熱巧克力醬+櫻桃）</span></div>
+              </div>
+            </li>
           </ul>
           <div class="note-box">
             <span class="note-icon">🍝</span> Toasted Ravioli 是聖路易斯獨創的炸義大利餃，是必嚐的城市美食！
@@ -1139,9 +1420,23 @@
           <span class="day-tag tag-return">回程日</span>
           <div class="day-title">🛬 芝加哥 ORD → 台灣</div>
           <ul class="day-items">
-            <li>早上提早退房，前往 O'Hare 機場（建議留 3 小時以上）</li>
+            <li>早上提早退房，可先到附近吃個悠閒早午餐</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">🛍️ Fashion Outlets of Chicago</strong> —
+              O'Hare 機場旁的大型名牌折扣商場，登機前最後血拼！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">📍</span> <span>位於 <span
+                      class="detail-highlight">Rosemont</span>，距 O'Hare 機場僅 <span class="detail-highlight">10
+                      分鐘車程</span></span></div>
+                <div class="detail-row"><span class="detail-icon">🏪</span>
+                  <span>品牌包括：Gucci、Prada、Burberry、Nike、Coach、Michael Kors 等超過 130 家店</span></div>
+                <div class="detail-row"><span class="detail-icon">💰</span> <span>折扣通常 <span
+                      class="detail-highlight">25%-65% OFF</span>，美國名牌價格本就比台灣便宜很多！</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>營業時間 10:00-21:00，建議預留 2-3 小時</span>
+                </div>
+              </div>
+            </li>
+            <li><strong>前往 O'Hare 國際機場 (ORD)</strong> — 建議提前 3 小時抵達，還車並辦理報到</li>
             <li>國際線出境、行李托運</li>
-            <li>出發前在 Midway/ORD 最後採購伴手禮</li>
             <li>搭乘直飛台灣班機，預計抵達台灣為 5/2 或 5/3（依班次）</li>
             <li>抵台通關、滿載回憶和獎牌凱旋！</li>
           </ul>
@@ -1171,13 +1466,39 @@
           <span class="day-tag tag-science">Day 1 · 公路冒險</span>
           <div class="day-title">🏭 City Museum → 林肯總統故鄉 → 芝加哥</div>
           <ul class="day-items">
-            <li><strong>早上：City Museum（城市博物館）</strong> — 這不是傳統博物館，而是由舊鞋廠改建的「巨大工業風遊樂場」！裡面充滿廢棄飛機、金屬溜滑梯、工業機械零件拼湊的立體迷宮，激發
-              VEX 選手對機構設計的想像！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">早上：City Museum（城市博物館）</strong> —
+              由舊鞋廠改建的巨大工業風遊樂場！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🏭</span> <span>內部充滿廢棄飛機、金屬溜滑梯、工業機械零件拼湊的<span
+                      class="detail-highlight">立體迷宮</span>，激發 VEX 選手對機構設計的想像！</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票約 <span
+                      class="detail-highlight">$18-22/人</span></span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>建議停留 2-3 小時，頂樓戶外區域也很精彩</span></div>
+                <div class="detail-row"><span class="detail-icon">⭐</span> <span>國中生絕對會瘋狂的地方！也契合工業自動化零件的專業興趣</span>
+                </div>
+              </div>
+            </li>
             <li><strong>中午：出發前往春田市 (Springfield, IL)</strong> — 車程約 1.5 小時，伊利諾州首府、林肯總統的故鄉</li>
-            <li><strong>下午：Abraham Lincoln Presidential Museum</strong> —
-              林肯總統圖書館與博物館，運用全息投影（Hologram）、特效和身歷其境的場景重建，是超棒的沉浸式教育體驗！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">下午：Abraham Lincoln Presidential
+                Museum</strong> — 林肯總統圖書館與博物館
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🏤</span> <span>運用<span
+                      class="detail-highlight">全息投影（Hologram）</span>、特效和身歷其境的場景重建，不是枯燥的文物陳列！</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票約 <span
+                      class="detail-highlight">$15/人</span>，學生票有優惠</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>建議停留 1.5-2 小時，展覽非常先進且生動</span></div>
+              </div>
+            </li>
             <li><strong>傍晚：繼續驅車前往芝加哥</strong> — 車程約 3 小時，抵達芝加哥市區飯店 Check-in</li>
-            <li><strong>晚餐：芝加哥深盤披薩 (Deep Dish Pizza)</strong> — 去 Giordano's 或 Lou Malnati's，超厚實牽絲起司的道地美式披薩，犒賞比賽辛勞！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">晚餐：芝加哥深盤披薩 (Deep Dish Pizza)</strong> —
+              Giordano's 或 Lou Malnati's
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🍕</span> <span><span
+                      class="detail-highlight">芝加哥必吃！</span>超厚實牽絲起司的道地美式披薩</span></div>
+                <div class="detail-row"><span class="detail-icon">⚠️</span> <span>需等待 40-50 分鐘製作，建議提早訂位或預約</span></div>
+                <div class="detail-row"><span class="detail-icon">💰</span> <span>人均約 $20-30 USD</span></div>
+              </div>
+            </li>
           </ul>
           <div class="note-box">
             <span class="note-icon">🏭</span> City Museum 絕對是國中生會瘋狂的地方！也非常契合 VEX 選手對機構設計與空間結構的思考。
@@ -1200,13 +1521,34 @@
           <span class="day-tag tag-science">Day 2 · 芝加哥科學日</span>
           <div class="day-title">🔬 科學與工業博物館 · 千禧公園 · 摩天觀景</div>
           <ul class="day-items">
-            <li><strong>早上至下午：Museum of Science and Industry (MSI)</strong> — 西半球最大科學博物館，VEX 團隊必去聖地！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">早上至下午：Museum of Science and Industry
+                (MSI)</strong> — 西半球最大科學博物館，VEX 團隊必去聖地！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🔬</span> <span>佔地超過 <span
+                      class="detail-highlight">37,000 平方公尺</span>，是西半球最大的科學博物館</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票約 <span
+                      class="detail-highlight">$21.95/人</span>，部分展區另加費，建議買全票</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>建議停留 4-5 小時，展區非常豐富</span></div>
+                <div class="detail-row"><span class="detail-icon">⭐</span> <span>必看：Science Storms（12公尺人造龍捲風）、U-505
+                    潛艇、機器人展區</span></div>
+              </div>
+            </li>
             <li><strong>必看：Science Storms</strong> — 12 公尺室內人造龍捲風，展示物理、流體力學與磁場原理</li>
             <li><strong>必看：U-505 潛艇</strong> — 真實二戰德國潛艇，展示極致機械與潛艦工程</li>
             <li>各種自動化機械、機器人展示與互動實驗室，孩子們可以在這裡待上大半天</li>
             <li><strong>傍晚：Millennium Park</strong> — Cloud Gate「大豆 (The Bean)」拍照打卡，感受芝加哥摩登城市氛圍</li>
-            <li><strong>晚上：Willis Tower Skydeck（威利斯大廈觀景台）</strong> — 全美第三高樓，體驗 "The Ledge" 懸空玻璃觀景台，站在透明玻璃盒上俯瞰 400
-              公尺下的芝加哥街道！</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">晚上：Willis Tower
+                Skydeck（威利斯大廈觀景台）</strong> — 全美第三高樓
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">🏗️</span> <span>樓高 <span class="detail-highlight">442
+                      公尺</span>，103 樓觀景台可侯看四個州</span></div>
+                <div class="detail-row"><span class="detail-icon">⭐</span> <span>必體驗 <span class="detail-highlight">"The
+                      Ledge"</span> — 懸空玻璃觀景台，站在透明玻璃盒上俯瞰 400 公尺下的街道！</span></div>
+                <div class="detail-row"><span class="detail-icon">🎟️</span> <span>門票約 <span
+                      class="detail-highlight">$30-35/人</span>，建議線上購票可省排隊時間</span></div>
+                <div class="detail-row"><span class="detail-icon">🌃</span> <span>日落前 1 小時上去最佳，可同時看到日景與夜景！</span></div>
+              </div>
+            </li>
           </ul>
           <div class="note-box red-note">
             <span class="note-icon">🔬</span> MSI 是 VEX 選手的天堂！Science Storms 展區的物理原理展示和互動實驗室，能直接呼應機器人競賽中的工程思維。
@@ -1233,6 +1575,20 @@
             </li>
             <li>（備案：若天氣不佳，可改去 Field Museum 菲爾德自然史博物館，看全世界最完整的暴龍化石 "Sue"）</li>
             <li><strong>中午：Navy Pier（海軍碼頭）午餐</strong> — 吃午餐、買紀念品，旁邊有摩天輪可遠眺密西根湖無敵湖景</li>
+            <li><strong class="attraction-toggle" onclick="toggleDetail(this)">🛍️ Fashion Outlets of Chicago</strong> —
+              O'Hare 機場旁的大型名牌折扣商場，登機前最後血拼！
+              <div class="attraction-detail">
+                <div class="detail-row"><span class="detail-icon">📍</span> <span>位於 <span
+                      class="detail-highlight">Rosemont</span>，距 O'Hare 機場僅 <span class="detail-highlight">10
+                      分鐘車程</span></span></div>
+                <div class="detail-row"><span class="detail-icon">🏪</span>
+                  <span>品牌包括：Gucci、Prada、Burberry、Nike、Coach、Michael Kors 等超過 130 家店</span></div>
+                <div class="detail-row"><span class="detail-icon">💰</span> <span>折扣通常 <span
+                      class="detail-highlight">25%-65% OFF</span>，美國名牌價格本就比台灣便宜很多！</span></div>
+                <div class="detail-row"><span class="detail-icon">⏰</span> <span>營業時間 10:00-21:00，建議預留 2-3 小時</span>
+                </div>
+              </div>
+            </li>
             <li><strong>下午：前往 O'Hare 國際機場 (ORD)</strong> — 建議提前 3 小時抵達機場還車並辦理報到</li>
             <li>帶著滿滿的回憶準備飛回台灣！預計抵達台灣為 5/1 或 5/2（依班次）</li>
           </ul>
@@ -1299,10 +1655,9 @@
       document.getElementById('plan-a').classList.toggle('active', plan === 'a');
       document.getElementById('plan-b').classList.toggle('active', plan === 'b');
 
-      // Toggle tab styles
-      const tabs = document.querySelectorAll('.plan-tab');
-      tabs[0].classList.toggle('active', plan === 'a');
-      tabs[1].classList.toggle('active', plan === 'b');
+      // Toggle card styles
+      document.getElementById('card-a').classList.toggle('active', plan === 'a');
+      document.getElementById('card-b').classList.toggle('active', plan === 'b');
 
       // Update summary
       const summary = document.getElementById('plan-summary');
@@ -1315,7 +1670,15 @@
       }
 
       // Smooth scroll to plan content
-      document.querySelector('.plan-selector').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      document.querySelector('.plan-selector-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function toggleDetail(el) {
+      el.classList.toggle('open');
+      const detail = el.closest('li').querySelector('.attraction-detail');
+      if (detail) {
+        detail.classList.toggle('open');
+      }
     }
   </script>
 
