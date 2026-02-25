@@ -613,6 +613,155 @@
       letter-spacing: 2px;
     }
 
+    /* PLAN SELECTOR */
+    .plan-selector {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px 10px;
+    }
+
+    .plan-selector-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .plan-selector-header h3 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .plan-tabs {
+      display: flex;
+      gap: 0;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .plan-tab {
+      flex: 1;
+      padding: 16px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.03);
+      border: none;
+      color: #888;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .plan-tab:first-child {
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .plan-tab:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: #ccc;
+    }
+
+    .plan-tab.active {
+      background: linear-gradient(135deg, rgba(46, 196, 182, 0.15), rgba(15, 52, 96, 0.3));
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .plan-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+    }
+
+    .plan-tab .tab-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .plan-tab .tab-desc {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+
+    .plan-summary {
+      max-width: 600px;
+      margin: 20px auto 0;
+      text-align: center;
+      padding: 16px 20px;
+      background: rgba(46, 196, 182, 0.06);
+      border: 1px solid rgba(46, 196, 182, 0.12);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #999;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    .plan-content {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .plan-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* NEW TAG COLORS FOR PLAN B */
+    .tag-science {
+      background: rgba(52, 152, 219, 0.15);
+      color: #3498db;
+    }
+
+    .tag-history {
+      background: rgba(155, 89, 182, 0.15);
+      color: #9b59b6;
+    }
+
+    .day-card.science .day-date {
+      border-left-color: #3498db;
+    }
+
+    .day-card.science .day-num {
+      color: #3498db;
+    }
+
+    .day-card.science .day-items li::before {
+      color: #3498db;
+    }
+
+    .day-card.history .day-date {
+      border-left-color: #9b59b6;
+    }
+
+    .day-card.history .day-num {
+      color: #9b59b6;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 600px) {
       .day-card {
@@ -625,6 +774,15 @@
 
       .stats-bar {
         gap: 30px;
+      }
+
+      .plan-tabs {
+        flex-direction: column;
+      }
+
+      .plan-tab:first-child {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       }
     }
   </style>
@@ -660,7 +818,7 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="num">10</div>
+      <div class="num" id="stats-days">10</div>
       <div class="lbl">天總行程</div>
     </div>
     <div class="stat">
@@ -864,109 +1022,227 @@
       </div>
     </div>
 
-    <!-- EXPLORE STL -->
-    <div class="phase-divider">
-      <span class="phase-label">🌉 第四階段 · 聖路易斯觀光</span>
-    </div>
-
-    <div class="day-card explore">
-      <div class="day-date">
-        <div class="day-num">28</div>
-        <div class="day-month">April</div>
-        <div class="day-weekday">MON</div>
+    <!-- PLAN SELECTOR -->
+    <div class="plan-selector">
+      <div class="plan-selector-header">
+        <h3>🗺️ 選擇賽後行程方案</h3>
       </div>
-      <div class="day-content">
-        <span class="day-tag tag-stl">聖路易斯 Day 1</span>
-        <div class="day-title">🌉 Gateway Arch + 市中心探索</div>
-        <ul class="day-items">
-          <li><strong>早上：Gateway Arch</strong> — 乘坐特殊膠囊纜車登頂（192m），俯瞰密西西比河與市區全景（提早訂票！$15-19/人）</li>
-          <li>Arch 下方博物館：西進運動與美國移民歷史免費參觀</li>
-          <li><strong>午餐：Pappy's Smokehouse</strong> — 聖路易斯招牌 BBQ 肋排</li>
-          <li><strong>下午：聖路易斯舊法院</strong>（Old Courthouse）— 歷史建築免費入場</li>
-          <li>沿密西西比河畔散步、拍攝 Arch 倒影</li>
-          <li><strong>晚餐：Soulard 區</strong> — 聖路易斯最有歷史的街區，法式風情餐廳</li>
-        </ul>
+      <div class="plan-tabs">
+        <button class="plan-tab active" onclick="switchPlan('a')">
+          <span class="tab-label">方案 A</span>
+          聖路易斯深度觀光
+          <div class="tab-desc">10天 · Gateway Arch · Forest Park</div>
+        </button>
+        <button class="plan-tab" onclick="switchPlan('b')">
+          <span class="tab-label">方案 B</span>
+          科學教育 × 公路冒險
+          <div class="tab-desc">9天 · City Museum · 林肯博物館 · MSI</div>
+        </button>
+      </div>
+      <div class="plan-summary" id="plan-summary">
+        ✅ 目前選擇：<strong>方案 A</strong> — 聖路易斯 2 天觀光 + 芝加哥 1 天，共 10 天行程
       </div>
     </div>
 
-    <div class="day-card explore">
-      <div class="day-date">
-        <div class="day-num">29</div>
-        <div class="day-month">April</div>
-        <div class="day-weekday">TUE</div>
+    <!-- PLAN A CONTENT -->
+    <div id="plan-a" class="plan-content active">
+
+      <!-- EXPLORE STL -->
+      <div class="phase-divider">
+        <span class="phase-label">🌉 第四階段 · 聖路易斯觀光</span>
       </div>
-      <div class="day-content">
-        <span class="day-tag tag-stl">聖路易斯 Day 2</span>
-        <div class="day-title">🌲 Forest Park + The Hill 義大利區</div>
-        <ul class="day-items">
-          <li><strong>上午：Forest Park</strong> — 比紐約中央公園還大的城市綠地（全部免費！）</li>
-          <li><strong>聖路易斯動物園</strong>（Saint Louis Zoo）— 全美評價最高的免費動物園</li>
-          <li><strong>聖路易斯藝術博物館</strong>（SLAM）— 免費入場，館藏超過3萬件</li>
-          <li><strong>Art Hill</strong> — 俯瞰大倒影池的最佳打卡點</li>
-          <li><strong>午餐：The Hill 義大利區</strong> — 聖路易斯最正統的義式料理聚集地，必嚐 Toasted Ravioli（聖路易斯獨創的炸義大利餃）！</li>
-          <li><strong>下午：City Museum</strong> — 超創意的成人遊樂場，大人小孩都瘋狂！或前往 Busch Stadium 觀賞 Cardinals 棒球賽</li>
-          <li><strong>晚餐：Ted Drewes Frozen Custard</strong> — 聖路易斯傳說等級冰淇淋，必吃！</li>
-        </ul>
-        <div class="note-box">
-          <span class="note-icon">🍝</span> Toasted Ravioli 是聖路易斯獨創的炸義大利餃，是必嚐的城市美食！
+
+      <div class="day-card explore">
+        <div class="day-date">
+          <div class="day-num">28</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">MON</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-stl">聖路易斯 Day 1</span>
+          <div class="day-title">🌉 Gateway Arch + 市中心探索</div>
+          <ul class="day-items">
+            <li><strong>早上：Gateway Arch</strong> — 乘坐特殊膠囊纜車登頂（192m），俯瞰密西西比河與市區全景（提早訂票！$15-19/人）</li>
+            <li>Arch 下方博物館：西進運動與美國移民歷史免費參觀</li>
+            <li><strong>午餐：Pappy's Smokehouse</strong> — 聖路易斯招牌 BBQ 肋排</li>
+            <li><strong>下午：聖路易斯舊法院</strong>（Old Courthouse）— 歷史建築免費入場</li>
+            <li>沿密西西比河畔散步、拍攝 Arch 倒影</li>
+            <li><strong>晚餐：Soulard 區</strong> — 聖路易斯最有歷史的街區，法式風情餐廳</li>
+          </ul>
         </div>
       </div>
-    </div>
 
-    <!-- CHICAGO RETURN -->
-    <div class="phase-divider">
-      <span class="phase-label">🌆 第五階段 · 返程芝加哥觀光</span>
-    </div>
-
-    <div class="day-card chicago">
-      <div class="day-date">
-        <div class="day-num">30</div>
-        <div class="day-month">April</div>
-        <div class="day-weekday">WED</div>
-      </div>
-      <div class="day-content">
-        <span class="day-tag tag-explore">芝加哥觀光</span>
-        <div class="day-title">🏙️ 公路北返芝加哥 · 經典景點打卡</div>
-        <ul class="day-items">
-          <li>早上退房，沿 I-55 North 開車約 5 小時前往芝加哥</li>
-          <li>午後抵達，入住芝加哥市區飯店（推薦 Loop 或 Magnificent Mile 區）</li>
-          <li><strong>Millennium Park</strong> — Cloud Gate「大豆」拍照（免費），周圍公共藝術欣賞</li>
-          <li><strong>Chicago Riverwalk</strong> — 沿芝加哥河散步，欣賞壯觀的建築天際線</li>
-          <li><strong>晚餐：Giordano's 或 Gino's East</strong> — 必吃芝加哥 Deep Dish 深盤披薩（需等待 45 分鐘，值得！）</li>
-          <li>夜晚可登上 360 Chicago 觀景台或 Skydeck，俯瞰夜景</li>
-        </ul>
-        <div class="note-box">
-          <span class="note-icon">🍕</span> Deep Dish 一定要預約或早點到！Giordano's 與 Gino's East 都是百年老店首選。
+      <div class="day-card explore">
+        <div class="day-date">
+          <div class="day-num">29</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">TUE</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-stl">聖路易斯 Day 2</span>
+          <div class="day-title">🌲 Forest Park + The Hill 義大利區</div>
+          <ul class="day-items">
+            <li><strong>上午：Forest Park</strong> — 比紐約中央公園還大的城市綠地（全部免費！）</li>
+            <li><strong>聖路易斯動物園</strong>（Saint Louis Zoo）— 全美評價最高的免費動物園</li>
+            <li><strong>聖路易斯藝術博物館</strong>（SLAM）— 免費入場，館藏超過3萬件</li>
+            <li><strong>Art Hill</strong> — 俯瞰大倒影池的最佳打卡點</li>
+            <li><strong>午餐：The Hill 義大利區</strong> — 聖路易斯最正統的義式料理聚集地，必嚐 Toasted Ravioli（聖路易斯獨創的炸義大利餃）！</li>
+            <li><strong>下午：City Museum</strong> — 超創意的成人遊樂場，大人小孩都瘋狂！或前往 Busch Stadium 觀賞 Cardinals 棒球賽</li>
+            <li><strong>晚餐：Ted Drewes Frozen Custard</strong> — 聖路易斯傳說等級冰淇淋，必吃！</li>
+          </ul>
+          <div class="note-box">
+            <span class="note-icon">🍝</span> Toasted Ravioli 是聖路易斯獨創的炸義大利餃，是必嚐的城市美食！
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- RETURN DAY -->
-    <div class="phase-divider">
-      <span class="phase-label">✈ 最終階段 · 回家</span>
-    </div>
-
-    <div class="day-card return">
-      <div class="day-date">
-        <div class="day-num">01</div>
-        <div class="day-month">May</div>
-        <div class="day-weekday">THU</div>
+      <!-- CHICAGO RETURN -->
+      <div class="phase-divider">
+        <span class="phase-label">🌆 第五階段 · 返程芝加哥觀光</span>
       </div>
-      <div class="day-content">
-        <span class="day-tag tag-return">回程日</span>
-        <div class="day-title">🛬 芝加哥 ORD → 台灣</div>
-        <ul class="day-items">
-          <li>早上提早退房，前往 O'Hare 機場（建議留 3 小時以上）</li>
-          <li>國際線出境、行李托運</li>
-          <li>出發前在 Midway/ORD 最後採購伴手禮</li>
-          <li>搭乘直飛台灣班機，預計抵達台灣為 5/2 或 5/3（依班次）</li>
-          <li>抵台通關、滿載回憶和獎牌凱旋！</li>
-        </ul>
-        <div class="note-box">
-          <span class="note-icon">🎁</span> 伴手禮推薦：Garrett Popcorn（芝加哥爆米花）、Lou Malnati's 冷凍披薩、STL 紀念品、VEX 競賽周邊！
+
+      <div class="day-card chicago">
+        <div class="day-date">
+          <div class="day-num">30</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">WED</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-explore">芝加哥觀光</span>
+          <div class="day-title">🏙️ 公路北返芝加哥 · 經典景點打卡</div>
+          <ul class="day-items">
+            <li>早上退房，沿 I-55 North 開車約 5 小時前往芝加哥</li>
+            <li>午後抵達，入住芝加哥市區飯店（推薦 Loop 或 Magnificent Mile 區）</li>
+            <li><strong>Millennium Park</strong> — Cloud Gate「大豆」拍照（免費），周圍公共藝術欣賞</li>
+            <li><strong>Chicago Riverwalk</strong> — 沿芝加哥河散步，欣賞壯觀的建築天際線</li>
+            <li><strong>晚餐：Giordano's 或 Gino's East</strong> — 必吃芝加哥 Deep Dish 深盤披薩（需等待 45 分鐘，值得！）</li>
+            <li>夜晚可登上 360 Chicago 觀景台或 Skydeck，俯瞰夜景</li>
+          </ul>
+          <div class="note-box">
+            <span class="note-icon">🍕</span> Deep Dish 一定要預約或早點到！Giordano's 與 Gino's East 都是百年老店首選。
+          </div>
         </div>
       </div>
-    </div>
+
+      <!-- RETURN DAY -->
+      <div class="phase-divider">
+        <span class="phase-label">✈ 最終階段 · 回家</span>
+      </div>
+
+      <div class="day-card return">
+        <div class="day-date">
+          <div class="day-num">01</div>
+          <div class="day-month">May</div>
+          <div class="day-weekday">THU</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-return">回程日</span>
+          <div class="day-title">🛬 芝加哥 ORD → 台灣</div>
+          <ul class="day-items">
+            <li>早上提早退房，前往 O'Hare 機場（建議留 3 小時以上）</li>
+            <li>國際線出境、行李托運</li>
+            <li>出發前在 Midway/ORD 最後採購伴手禮</li>
+            <li>搭乘直飛台灣班機，預計抵達台灣為 5/2 或 5/3（依班次）</li>
+            <li>抵台通關、滿載回憶和獎牌凱旋！</li>
+          </ul>
+          <div class="note-box">
+            <span class="note-icon">🎁</span> 伴手禮推薦：Garrett Popcorn（芝加哥爆米花）、Lou Malnati's 冷凍披薩、STL 紀念品、VEX 競賽周邊！
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end plan-a -->
+
+    <!-- PLAN B CONTENT -->
+    <div id="plan-b" class="plan-content">
+
+      <!-- PLAN B DAY 1 -->
+      <div class="phase-divider">
+        <span class="phase-label">🏭 第四階段 · 工業冒險與林肯故鄉</span>
+      </div>
+
+      <div class="day-card science">
+        <div class="day-date">
+          <div class="day-num">28</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">MON</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-science">Day 1 · 公路冒險</span>
+          <div class="day-title">🏭 City Museum → 林肯總統故鄉 → 芝加哥</div>
+          <ul class="day-items">
+            <li><strong>早上：City Museum（城市博物館）</strong> — 這不是傳統博物館，而是由舊鞋廠改建的「巨大工業風遊樂場」！裡面充滿廢棄飛機、金屬溜滑梯、工業機械零件拼湊的立體迷宮，激發
+              VEX 選手對機構設計的想像！</li>
+            <li><strong>中午：出發前往春田市 (Springfield, IL)</strong> — 車程約 1.5 小時，伊利諾州首府、林肯總統的故鄉</li>
+            <li><strong>下午：Abraham Lincoln Presidential Museum</strong> —
+              林肯總統圖書館與博物館，運用全息投影（Hologram）、特效和身歷其境的場景重建，是超棒的沉浸式教育體驗！</li>
+            <li><strong>傍晚：繼續驅車前往芝加哥</strong> — 車程約 3 小時，抵達芝加哥市區飯店 Check-in</li>
+            <li><strong>晚餐：芝加哥深盤披薩 (Deep Dish Pizza)</strong> — 去 Giordano's 或 Lou Malnati's，超厚實牽絲起司的道地美式披薩，犒賞比賽辛勞！</li>
+          </ul>
+          <div class="note-box">
+            <span class="note-icon">🏭</span> City Museum 絕對是國中生會瘋狂的地方！也非常契合 VEX 選手對機構設計與空間結構的思考。
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN B DAY 2 -->
+      <div class="phase-divider">
+        <span class="phase-label">🔬 第五階段 · 工程科學與極限視覺</span>
+      </div>
+
+      <div class="day-card science">
+        <div class="day-date">
+          <div class="day-num">29</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">TUE</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-science">Day 2 · 芝加哥科學日</span>
+          <div class="day-title">🔬 科學與工業博物館 · 千禧公園 · 摩天觀景</div>
+          <ul class="day-items">
+            <li><strong>早上至下午：Museum of Science and Industry (MSI)</strong> — 西半球最大科學博物館，VEX 團隊必去聖地！</li>
+            <li><strong>必看：Science Storms</strong> — 12 公尺室內人造龍捲風，展示物理、流體力學與磁場原理</li>
+            <li><strong>必看：U-505 潛艇</strong> — 真實二戰德國潛艇，展示極致機械與潛艦工程</li>
+            <li>各種自動化機械、機器人展示與互動實驗室，孩子們可以在這裡待上大半天</li>
+            <li><strong>傍晚：Millennium Park</strong> — Cloud Gate「大豆 (The Bean)」拍照打卡，感受芝加哥摩登城市氛圍</li>
+            <li><strong>晚上：Willis Tower Skydeck（威利斯大廈觀景台）</strong> — 全美第三高樓，體驗 "The Ledge" 懸空玻璃觀景台，站在透明玻璃盒上俯瞰 400
+              公尺下的芝加哥街道！</li>
+          </ul>
+          <div class="note-box red-note">
+            <span class="note-icon">🔬</span> MSI 是 VEX 選手的天堂！Science Storms 展區的物理原理展示和互動實驗室，能直接呼應機器人競賽中的工程思維。
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAN B DAY 3 -->
+      <div class="phase-divider">
+        <span class="phase-label">✈ 最終階段 · 建築之美與啟程返台</span>
+      </div>
+
+      <div class="day-card chicago">
+        <div class="day-date">
+          <div class="day-num">30</div>
+          <div class="day-month">April</div>
+          <div class="day-weekday">WED</div>
+        </div>
+        <div class="day-content">
+          <span class="day-tag tag-explore">Day 3 · 回程日</span>
+          <div class="day-title">🏛️ 建築遊船 · 海軍碼頭 · 啟程返台</div>
+          <ul class="day-items">
+            <li><strong>早上：芝加哥建築遊船 (Architecture River Cruise)</strong> — 搭乘遊船穿梭芝加哥河，導遊介紹兩側頂尖工程師打造的摩天大樓，認識現代結構工程的偉大！
+            </li>
+            <li>（備案：若天氣不佳，可改去 Field Museum 菲爾德自然史博物館，看全世界最完整的暴龍化石 "Sue"）</li>
+            <li><strong>中午：Navy Pier（海軍碼頭）午餐</strong> — 吃午餐、買紀念品，旁邊有摩天輪可遠眺密西根湖無敵湖景</li>
+            <li><strong>下午：前往 O'Hare 國際機場 (ORD)</strong> — 建議提前 3 小時抵達機場還車並辦理報到</li>
+            <li>帶著滿滿的回憶準備飛回台灣！預計抵達台灣為 5/1 或 5/2（依班次）</li>
+          </ul>
+          <div class="note-box">
+            <span class="note-icon">🎁</span> 伴手禮推薦：Garrett Popcorn（芝加哥爆米花）、Lou Malnati's 冷凍披薩、MSI 紀念品、VEX 競賽周邊！
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end plan-b -->
 
   </div>
 
@@ -1016,6 +1292,32 @@
   <footer>
     VEX V5 Robotics Championship 2025 · Taiwan Team · 台灣隊加油！🏆
   </footer>
+
+  <script>
+    function switchPlan(plan) {
+      // Toggle content
+      document.getElementById('plan-a').classList.toggle('active', plan === 'a');
+      document.getElementById('plan-b').classList.toggle('active', plan === 'b');
+
+      // Toggle tab styles
+      const tabs = document.querySelectorAll('.plan-tab');
+      tabs[0].classList.toggle('active', plan === 'a');
+      tabs[1].classList.toggle('active', plan === 'b');
+
+      // Update summary
+      const summary = document.getElementById('plan-summary');
+      if (plan === 'a') {
+        summary.innerHTML = '✅ 目前選擇：<strong>方案 A</strong> — 聖路易斯 2 天觀光 + 芝加哥 1 天，共 10 天行程';
+        document.getElementById('stats-days').textContent = '10';
+      } else {
+        summary.innerHTML = '✅ 目前選擇：<strong>方案 B</strong> — City Museum + 林肯博物館 + MSI 科學之旅，共 9 天行程';
+        document.getElementById('stats-days').textContent = '9';
+      }
+
+      // Smooth scroll to plan content
+      document.querySelector('.plan-selector').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  </script>
 
 </body>
 
