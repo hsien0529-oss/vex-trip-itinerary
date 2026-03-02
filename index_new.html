@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 VEX V5 聖路易斯世界賽 × 芝加哥探索行程</title>
+  <meta name="description" content="2026 VEX V5 國中團隊聖路易斯世界賽與芝加哥探索總行程規劃">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', 'Inter', sans-serif;
+      background: #ffffff;
+      color: #333;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #e8f4f8 0%, #d0e8f2 30%, #b8d8e8 60%, #1a6b8a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(46, 196, 182, 0.12) 0%, transparent 70%);
+      top: -300px;
+      right: -200px;
+      border-radius: 50%;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 24px;
+      background: rgba(46, 196, 182, 0.2);
+      border: 1px solid rgba(46, 196, 182, 0.3);
+      border-radius: 50px;
+      color: #2ec4b6;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #0f7b6e 50%, #2ec4b6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 32px;
+      line-height: 1.8;
+    }
+
+    .hero-sub strong {
+      color: #2ec4b6;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #2ec4b6;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* ROUTE VISUAL */
+    .route-section {
+      padding: 60px 20px;
+      background: linear-gradient(180deg, #f8f9fa, #f0f2f5);
+    }
+
+    .route-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .route-city {
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .city-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      filter: grayscale(0);
+    }
+
+    .city-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1a1a2e;
+    }
+
+    .city-sub {
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    .route-arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .arrow-line {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, #2ec4b6, #4ecdc4);
+      border-radius: 2px;
+    }
+
+    .route-label {
+      font-size: 0.7rem;
+      color: #2ec4b6;
+      white-space: nowrap;
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+
+    .section-header .line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #2ec4b6, #4ecdc4);
+      margin: 0 auto;
+      border-radius: 3px;
+    }
+
+    /* TIMELINE */
+    .timeline-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* PHASE DIVIDER */
+    .phase-divider {
+      text-align: center;
+      margin: 50px 0 30px;
+      position: relative;
+    }
+
+    .phase-divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #ddd, transparent);
+    }
+
+    .phase-label {
+      position: relative;
+      background: #ffffff;
+      padding: 8px 24px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2ec4b6;
+      letter-spacing: 1px;
+    }
+
+    /* DAY CARDS */
+    .day-card {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 24px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 16px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: border-color 0.3s;
+    }
+
+    .day-card:hover {
+      border-color: #2ec4b6;
+    }
+
+    .day-card.chicago {
+      border-left: 3px solid #4ecdc4;
+    }
+
+    .day-card.competition {
+      border-left: 3px solid #e63946;
+    }
+
+    .day-card.science {
+      border-left: 3px solid #7b2ff7;
+    }
+
+    .day-card.return {
+      border-left: 3px solid #f4a261;
+    }
+
+    .day-date {
+      text-align: center;
+      padding-top: 4px;
+    }
+
+    .day-num {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1;
+    }
+
+    .day-month {
+      font-size: 0.8rem;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .day-weekday {
+      font-size: 0.7rem;
+      color: #2ec4b6;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .day-content {
+      flex: 1;
+    }
+
+    .day-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tag-travel {
+      background: rgba(46, 196, 182, 0.15);
+      color: #2ec4b6;
+    }
+
+    .tag-prep {
+      background: rgba(255, 183, 77, 0.15);
+      color: #ffb74d;
+    }
+
+    .tag-compete {
+      background: rgba(230, 57, 70, 0.15);
+      color: #e63946;
+    }
+
+    .tag-explore {
+      background: rgba(78, 205, 196, 0.15);
+      color: #4ecdc4;
+    }
+
+    .tag-science {
+      background: rgba(123, 47, 247, 0.15);
+      color: #7b2ff7;
+    }
+
+    .tag-return {
+      background: rgba(244, 162, 97, 0.15);
+      color: #f4a261;
+    }
+
+    .tag-shop {
+      background: rgba(255, 107, 107, 0.15);
+      color: #ff6b6b;
+    }
+
+    .day-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+    }
+
+    .day-items {
+      list-style: none;
+      padding: 0;
+    }
+
+    .day-items li {
+      padding: 6px 0 6px 20px;
+      position: relative;
+      color: #555;
+      font-size: 0.92rem;
+    }
+
+    .day-items li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #2ec4b6;
+      font-weight: bold;
+    }
+
+    .day-items li strong {
+      color: #1a1a2e;
+    }
+
+    .time-badge {
+      display: inline-block;
+      background: rgba(46, 196, 182, 0.1);
+      color: #2ec4b6;
+      border: 1px solid rgba(46, 196, 182, 0.2);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 8px;
+      font-family: 'Inter', monospace;
+    }
+
+    /* NOTE BOX */
+    .note-box {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(46, 196, 182, 0.06);
+      border-left: 3px solid #2ec4b6;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .note-box.red-note {
+      background: rgba(230, 57, 70, 0.06);
+      border-left-color: #e63946;
+    }
+
+    .note-box.yellow-note {
+      background: rgba(255, 183, 77, 0.08);
+      border-left-color: #ffb74d;
+    }
+
+    .note-icon {
+      margin-right: 8px;
+    }
+
+    /* EXPANDABLE DETAILS */
+    .attraction-toggle {
+      cursor: pointer;
+      position: relative;
+      padding-right: 20px;
+      transition: color 0.2s;
+    }
+
+    .attraction-toggle::after {
+      content: '▼';
+      font-size: 0.6rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #2ec4b6;
+      transition: transform 0.3s;
+    }
+
+    .attraction-toggle.open::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    .attraction-toggle:hover {
+      color: #2ec4b6;
+    }
+
+    .attraction-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      padding: 0 0 0 8px;
+      margin-top: 0;
+    }
+
+    .attraction-detail.open {
+      max-height: 300px;
+      padding: 10px 0 6px 8px;
+      margin-top: 6px;
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 3px 0;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .detail-icon {
+      flex-shrink: 0;
+    }
+
+    .detail-highlight {
+      color: #2ec4b6;
+      font-weight: 600;
+    }
+
+    /* ADVANTAGE BOX */
+    .advantage-box {
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(46, 196, 182, 0.08), rgba(78, 205, 196, 0.06));
+      border: 1px solid rgba(46, 196, 182, 0.2);
+      border-radius: 16px;
+    }
+
+    .advantage-box h3 {
+      color: #2ec4b6;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    .advantage-box p {
+      color: #555;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    /* COMPETITION CHECKLIST */
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 8px 0 8px 28px;
+      position: relative;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .checklist li::before {
+      content: '☐';
+      position: absolute;
+      left: 0;
+      color: #e63946;
+      font-size: 1rem;
+    }
+
+    .checklist li strong {
+      color: #1a1a2e;
+    }
+
+    /* TIPS */
+    .tips-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .tip-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .tip-icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .tip-title {
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 8px;
+    }
+
+    .tip-text {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .day-card {
+        grid-template-columns: 80px 1fr;
+      }
+
+      .day-num {
+        font-size: 1.8rem;
+      }
+
+      .stats-bar {
+        gap: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">2026 VEX V5 ROBOTICS WORLD CHAMPIONSHIP</div>
+    <h1>聖路易斯世界賽<br>× 芝加哥探索總行程</h1>
+    <div class="hero-sub">
+      為 VEX 國中團隊量身打造的專屬行程表。結合賽程安排與<strong>遊覽車團體進出的最佳後勤優勢</strong>，在激烈比賽後，來一趟充滿知識性與樂趣的完美旅程。
+    </div>
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="stat-num">10</div>
+        <div class="stat-label">DAYS</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">比賽日</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">探索日</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">城市</div>
+      </div>
+    </div>
+    <div style="margin-top: 40px; text-align: center;">
+      <a href="summary.html"
+        style="display: inline-block; padding: 12px 32px; background: rgba(46, 196, 182, 0.15); border: 1px solid rgba(46, 196, 182, 0.4); border-radius: 50px; color: #1a6b8a; font-weight: 700; font-size: 0.95rem; text-decoration: none; backdrop-filter: blur(10px); transition: background 0.2s;">
+        📄 點此看「精簡版行程表」
+      </a>
+    </div>
+  </div>
+
+  <!-- ROUTE -->
+  <div class="route-section">
+    <div class="route-visual">
+      <div class="route-city">
+        <div class="city-icon">🇹🇼</div>
+        <div class="city-name">台灣 TPE</div>
+        <div class="city-sub">出發地</div>
+      </div>
+      <div class="route-arrow">
+        <div class="arrow-line"></div>
+        <div class="route-label">✈ 轉機航班</div>
+      </div>
+      <div class="route-city">
+        <div class="city-icon">🏙️</div>
+        <div class="city-name">Chicago ORD</div>
+        <div class="city-sub">入境 · 住一晚</div>
+      </div>
+      <div class="route-arrow">
+        <div class="arrow-line"></div>
+        <div class="route-label">🚌 遊覽車 ~5hr</div>
+      </div>
+      <div class="route-city">
+        <div class="city-icon">🏛️</div>
+        <div class="city-name">St. Louis, MO</div>
+        <div class="city-sub">比賽城市</div>
+      </div>
+      <div class="route-arrow">
+        <div class="arrow-line"></div>
+        <div class="route-label">🚌 遊覽車</div>
+      </div>
+      <div class="route-city">
+        <div class="city-icon">🏙️</div>
+        <div class="city-name">Chicago, IL</div>
+        <div class="city-sub">探索城市</div>
+      </div>
+      <div class="route-arrow">
+        <div class="arrow-line"></div>
+        <div class="route-label">✈ 返程航班</div>
+      </div>
+      <div class="route-city">
+        <div class="city-icon">🇹🇼</div>
+        <div class="city-name">台灣 TPE</div>
+        <div class="city-sub">回家</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="timeline-section">
+    <div class="section-header">
+      <h2>每日行程詳表</h2>
+      <div class="line"></div>
+    </div>
+
+    <!-- ========== 第一階段：啟程與賽前準備 ========== -->
+    <div class="phase-divider">
+      <span class="phase-label">✈ 第一階段 · 啟程與賽前準備</span>
+    </div>
+
+    <!-- 4/22 -->
+    <div class="day-card chicago">
+      <div class="day-date">
+        <div class="day-num">22</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">WED</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-travel">出發日</span>
+        <div class="day-title">🛫 台灣出發 → 芝加哥 ORD（夜宿機場飯店）</div>
+        <ul class="day-items">
+          <li><strong>台灣交通：</strong>全隊集合，搭乘遊覽車前往桃園國際機場 (TPE)</li>
+          <li><strong>航班：</strong>搭乘早班機出發，經轉機後於晚間 9 點抵達芝加哥 O'Hare 國際機場 (ORD)</li>
+          <li>入境美國、通關、提領行李與機器人航空箱</li>
+          <li><strong>住宿：</strong>搭乘飯店接駁車前往 ORD 機場周邊飯店 Check-in（推薦 Hilton O'Hare / Hyatt Regency O'Hare）</li>
+          <li>抵達已晚，全隊好好休息，調適時差</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">💡</span> 航班晚間 9 點才抵達，來不及搭遊覽車前往聖路易斯（需 5 小時），因此安排在機場飯店住一晚，隔天一早出發。
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/23 -->
+    <div class="day-card">
+      <div class="day-date">
+        <div class="day-num">23</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">THU</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-travel">移動日 + 賽前準備</span>
+        <div class="day-title">🚌 芝加哥 → 聖路易斯 · 抵達備戰</div>
+        <ul class="day-items">
+          <li><strong>早上 7:00：</strong>飯店早餐後退房，全隊搭乘遊覽車出發</li>
+          <li><strong>遊覽車沿 I-55 South 前往聖路易斯</strong>，車程約 5 小時，車上可補眠調時差</li>
+          <li><strong>中午 12:00 左右：</strong>抵達聖路易斯，入住 America's Center 會展中心周邊飯店</li>
+          <li><strong>下午：</strong>前往會場熟悉環境、了解場館動線（pit 區、比賽場地、充電站）</li>
+          <li><strong>機器人開箱與基本組裝確認</strong>，確保運送過程無損壞</li>
+          <li>前往附近 Home Depot / 五金行補充消耗品（螺絲、束帶等）</li>
+          <li>晚餐後早睡，繼續調適時差</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">🚌</span> 遊覽車底層行李艙可放全隊機器人航空箱與大型行李，省去搬運的麻煩。
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/24 -->
+    <div class="day-card">
+      <div class="day-date">
+        <div class="day-num">24</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">FRI</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-prep">賽前準備日</span>
+        <div class="day-title">⚙️ 大會報到 · 檢錄 · 最終彩排</div>
+        <ul class="day-items">
+          <li><strong>前往會場完成報到手續</strong>，領取參賽物資、識別證與場地地圖</li>
+          <li><strong>機器人檢錄 (Inspection)：</strong>確認重量、尺寸、零件合規</li>
+          <li>練習賽場測試，調整程式與機構狀態至最佳</li>
+          <li><strong>機器人最終調校：</strong>感應器校準、自動程式微調、手動操作演練</li>
+          <li>隊伍策略演練：自動期 vs. 手動期得分方案確認</li>
+          <li>器材分類整理，pit 箱打包完畢</li>
+          <li>早睡備戰，確保明天狀態最佳</li>
+        </ul>
+        <div class="note-box yellow-note">
+          <span class="note-icon">⚠️</span> 提醒：VEX V5 規定每台機器人須符合重量（約 11.3 kg）與尺寸（18" × 18" × 18"）限制。請於正式 inspection
+          前自行進行一次完整檢查！
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 第二階段：VEX V5 世界錦標賽 ========== -->
+    <div class="phase-divider">
+      <span class="phase-label">🏆 第二階段 · VEX V5 世界錦標賽</span>
+    </div>
+
+    <!-- 4/25 -->
+    <div class="day-card competition">
+      <div class="day-date">
+        <div class="day-num">25</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">SAT</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-compete">比賽 Day 1 · 資格賽</span>
+        <div class="day-title">🏁 正式資格賽開打</div>
+        <ul class="day-items">
+          <li><strong>早上：</strong>開幕典禮、各國隊伍入場</li>
+          <li><strong>全天：</strong>進行多場資格賽，每場 2 分鐘（自動期 15 秒 + 手動期 1:45）</li>
+          <li>比賽空檔在 pit 區維修、調整策略、偵錯程式</li>
+          <li><strong>觀摩學習：</strong>利用空檔觀看其他頂尖隊伍的機構設計與策略</li>
+          <li>記錄每場比賽的得分與失分原因，持續優化</li>
+        </ul>
+        <div class="note-box red-note">
+          <span class="note-icon">🔧</span> 賽場建議攜帶：備用馬達、感應器、螺絲組、束帶、電池（至少 2 顆充飽）、筆電、充電器、工程筆記本。
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/26 -->
+    <div class="day-card competition">
+      <div class="day-date">
+        <div class="day-num">26</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">SUN</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-compete">比賽 Day 2 · 資格賽 + Skills</span>
+        <div class="day-title">⚡ Skills 挑戰 + 聯盟選拔</div>
+        <ul class="day-items">
+          <li><strong>上午：</strong>繼續進行資格賽，爭取最佳排名</li>
+          <li><strong>Robot Skills Challenge：</strong>1 分鐘自動 + 1 分鐘手動，個人最高分排名</li>
+          <li><strong>Programming Skills：</strong>1 分鐘純自動程式挑戰</li>
+          <li>關注即時排名，評估聯盟選拔的策略選擇</li>
+          <li><strong>Alliance Selection：</strong>資格賽結束後進行聯盟選拔，頂尖隊伍挑選夥伴組成聯盟</li>
+          <li>傍晚前確認淘汰賽對戰表，研討對手弱點與戰術</li>
+        </ul>
+        <div class="note-box red-note">
+          <span class="note-icon">🎯</span> Skills 挑戰是額外的得獎機會！即使資格賽排名不理想，Skills 高分也能獲得 Excellence Award 等殊榮。務必把握每一次上場機會。
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/27 -->
+    <div class="day-card competition">
+      <div class="day-date">
+        <div class="day-num">27</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">MON</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-compete">比賽 Day 3 · 淘汰賽 + 頒獎</span>
+        <div class="day-title">🏆 淘汰賽決戰 · 頒獎典禮</div>
+        <ul class="day-items">
+          <li><strong>上午：</strong>淘汰賽開打（16 強 → 8 強 → 4 強 → 決賽）</li>
+          <li>每輪採 Best of 3 制，緊張刺激的連續對決</li>
+          <li><strong>下午：</strong>總決賽與頒獎典禮</li>
+          <li>獎項包含：Excellence Award、Tournament Champions、Design Award、Judges Award 等</li>
+          <li><strong>傍晚：</strong>賽程圓滿落幕！全隊回飯店慶功</li>
+          <li><strong>整理行李：</strong>將機器人妥善裝入航空箱，整理大型行李，為明天出發做準備</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">🎉</span> 不論結果如何，能站上世界賽舞台就是最大的榮耀！為自己的努力鼓掌！
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 第三階段：中西部工程探索與採買 ========== -->
+    <div class="phase-divider">
+      <span class="phase-label">🚌 第三階段 · 中西部工程探索與採買</span>
+    </div>
+
+    <!-- ADVANTAGE BOX -->
+    <div class="advantage-box">
+      <h3>🚌 遊覽車團體專屬優勢</h3>
+      <p>比完賽後，全隊的行李與 V5 機器人航空箱<strong>直接上遊覽車底層行李艙</strong>。全程不需再搬運，也不必面臨國內線飛機的超重行李費與安檢折磨。遊覽車上可休息、充電、用餐，讓旅程輕鬆舒適！</p>
+    </div>
+
+    <!-- 4/28 -->
+    <div class="day-card science">
+      <div class="day-date">
+        <div class="day-num">28</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">TUE</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-explore">探索 Day 1</span>
+        <div class="day-title">🌉 聖路易斯半日遊 → 遊覽車北返芝加哥</div>
+        <ul class="day-items">
+          <li><span class="time-badge">08:00</span> 早餐後退房，行李上車</li>
+          <li><span class="time-badge">08:30</span> <strong>Gateway Arch</strong> — 聖路易斯地標！在 Arch 前方廣場拍攝團體照＆紀念照📸</li>
+          <li>沿 Arch 公園散步，欣賞這座 192 公尺高的壯觀不鏽鋼拱門</li>
+          <li><span class="time-badge">10:00</span> 沿密西西比河畔散步＆拍攝 Arch 倒影</li>
+          <li><span class="time-badge">10:30</span> 備選行程：<strong>City Museum</strong> —
+            聖路易斯最瘋狂的超創意互動博物館！由廢棄工廠改建，包含巨型攀爬結構、洞穴、滑梯、屋頂遊樂場，大人小孩都瘋狂（門票約 $18/人）</li>
+          <li><span class="time-badge">11:30</span> 搭乘遊覽車出發前往芝加哥，沿 I-55 North（車程約 5 小時）</li>
+          <li>途中享用午餐（休息站或 Springfield 停靠）</li>
+          <li><span class="time-badge">17:00</span> 預計抵達芝加哥，入住市區飯店（推薦 Loop 或 Magnificent Mile 區）</li>
+          <li><span class="time-badge">18:30</span> <strong>晚餐：Giordano's 或 Gino's East</strong> — 必吃芝加哥 Deep Dish
+            深盤披薩🍕（需等約 45 分鐘，值得！）</li>
+          <li>晚上可沿 Chicago Riverwalk 散步，欣賞夜景</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">📸</span> Gateway Arch 早上人潮較少，拍照效果最佳。建議從靠密西西比河側拍攝，可拍到 Arch 完整弧形！
+        </div>
+        <!-- DAY 28 GOOGLE MAP -->
+        <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d1584576.5!2d-89.5!3d40.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x87d8b4a9faed8ef9%3A0xbe39eaca22bbe509!2sGateway%20Arch%2C%20St.%20Louis%2C%20MO!3m2!1d38.6247!2d-90.1848!4m5!1s0x880e2c3cd0f4cbed%3A0xafe0a6ad09c0c000!2sChicago%2C%20IL!3m2!1d41.8781!2d-87.6298!5e0!3m2!1sen!2sus!4v1709000000000!5m2!1szh-TW!2stw"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div style="margin-top: 10px; text-align: center;">
+          <a href="https://www.google.com/maps/dir/Gateway+Arch,+St.+Louis,+MO/Springfield,+IL/Chicago,+IL"
+            target="_blank"
+            style="display: inline-block; background: var(--teal); color: #fff; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+            📍 在 Google Maps 開啟聖路易斯→芝加哥路線
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/29 -->
+    <div class="day-card science">
+      <div class="day-date">
+        <div class="day-num">29</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">WED</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-science">探索 Day 2 · 芝加哥觀光</span>
+        <div class="day-title">🏙️ 芝加哥全日觀光 · 博物館→摩天大樓→大豆→Navy Pier</div>
+        <ul class="day-items">
+          <li><span class="time-badge">09:00</span> <strong>① 芝加哥科學與工業博物館（MSI）</strong> — 遊覽車直送南區 Hyde Park</li>
+          <li>🚢 必看！<strong>U-505 潛水艇</strong> — 二戰德國 U 型潛艇，全球唯一公開展示，可進入艇內參觀！</li>
+          <li>🌪️ 必看！<strong>龍捲風模擬體驗</strong> — 12 公尺高室內龍捲風，近距離觀察形成過程，別處看不到！</li>
+          <li>其他亮點：波音 727 實體客機、煤礦坑探險、鏡像迷宮、模擬暴風雨體驗</li>
+          <li><span class="time-badge">12:00</span> 午餐：博物館區附近用餐</li>
+          <li><span class="time-badge">13:00</span> 搭遊覽車北上前往市中心 Loop 區（約 20 分鐘）</li>
+          <li><span class="time-badge">13:30</span> <strong>② Willis Tower Skydeck</strong> — 103 樓透明玻璃陽台「The Ledge」🫣
+          </li>
+          <li>站在透明玻璃地板上，腳下就是 412 公尺高空！比 360 Chicago 更刺激，學生最愛！</li>
+          <li><span class="time-badge">14:30</span> <strong>③ Millennium Park</strong> — 必拍「大豆」Cloud Gate！周圍公共藝術欣賞</li>
+          <li>Crown Fountain 互動噴泉、Jay Pritzker Pavilion 露天劇場</li>
+          <li><span class="time-badge">15:15</span> <strong>④ Magnificent Mile 快速巡禮</strong>（步行北上約 30 分鐘）</li>
+          <li>☕ <strong>Starbucks Reserve Roastery</strong> — ⭐ <strong>全世界最大的星巴克！</strong>五層樓高，必去朝聖拍照！</li>
+          <li>途經<strong>芝加哥水塔</strong>（Chicago Water Tower）— 1871年芝加哥大火唯一倖存建築，拍照打卡</li>
+          <li><span class="time-badge">16:00</span> <strong>⑤ Navy Pier 海軍碼頭</strong> — 芝加哥最歡樂的地方！</li>
+          <li>🎡 搭乘 <strong>Centennial Wheel 摩天輪</strong>（近 60 公尺高），俯瞰密西根湖＆天際線</li>
+          <li>🎠 Wave Swinger 飛椅、互動遊戲、碼頭散步、湖邊拍照</li>
+          <li>🍕 碼頭上有多家美食餐廳，邊吃邊看湖景</li>
+          <li><span class="time-badge">18:00</span> 晚餐：推薦 <strong>Portillo's</strong> — 芝加哥經典 Chicago-style Hot Dog &
+            Italian Beef</li>
+          <li><span class="time-badge">19:00</span> 等待日落🌅，欣賞密西根湖夕陽＆芝加哥天際線夜景</li>
+        </ul>
+
+        <div class="note-box yellow-note">
+          <span class="note-icon">🏃</span> 路線由南→北一路順行，不走回頭路！MSI(南)→ Skydeck(Loop)→ Millennium Park → Magnificent Mile →
+          Navy Pier(湖邊)。全球最大星巴克在大道上，快速朝聖即可！
+        </div>
+
+        <!-- DAY 29 ROUTE MAP -->
+        <div style="margin-top: 20px; background: #f0f2f5; border-radius: 8px; padding: 24px;">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <strong style="font-size: 1rem;">🗺️ Day 2 芝加哥觀光路線圖</strong>
+            <div style="color: #999; font-size: 0.75rem; margin-top: 4px;">由南→北順行，不走回頭路</div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0;">
+            <div style="text-align: center; padding: 10px 14px;">
+              <div style="font-size: 1.8rem;">🏛️</div>
+              <div
+                style="background: #2ec4b6; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 4px 0;">
+                1</div>
+              <div style="font-weight: 700; font-size: 0.85rem;">MSI 博物館</div>
+              <div style="color: #999; font-size: 0.65rem;">Hyde Park 南區</div>
+              <div style="color: #2ec4b6; font-size: 0.65rem;">09:00-12:00</div>
+            </div>
+            <div style="color: #ccc; font-size: 0.8rem; padding: 0 4px;">
+              <div style="border-top: 2px dashed #ccc; width: 40px; margin: 0 auto;"></div>
+              <div style="font-size: 0.6rem; color: #aaa; margin-top: 2px;">🚌 遊覽車 20m</div>
+            </div>
+            <div style="text-align: center; padding: 10px 14px;">
+              <div style="font-size: 1.8rem;">🏙️</div>
+              <div
+                style="background: #2ec4b6; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 4px 0;">
+                2</div>
+              <div style="font-weight: 700; font-size: 0.85rem;">Skydeck</div>
+              <div style="color: #999; font-size: 0.65rem;">Willis Tower 103F</div>
+              <div style="color: #2ec4b6; font-size: 0.65rem;">13:30-14:30</div>
+            </div>
+            <div style="color: #ccc; font-size: 0.8rem; padding: 0 4px;">
+              <div style="border-top: 2px dashed #ccc; width: 40px; margin: 0 auto;"></div>
+              <div style="font-size: 0.6rem; color: #aaa; margin-top: 2px;">🚶 步行 10m</div>
+            </div>
+            <div style="text-align: center; padding: 10px 14px;">
+              <div style="font-size: 1.8rem;">🫘</div>
+              <div
+                style="background: #2ec4b6; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 4px 0;">
+                3</div>
+              <div style="font-weight: 700; font-size: 0.85rem;">Millennium Park</div>
+              <div style="color: #999; font-size: 0.65rem;">Cloud Gate 大豆</div>
+              <div style="color: #2ec4b6; font-size: 0.65rem;">14:30-15:15</div>
+            </div>
+            <div style="color: #ccc; font-size: 0.8rem; padding: 0 4px;">
+              <div style="border-top: 2px dashed #ccc; width: 40px; margin: 0 auto;"></div>
+              <div style="font-size: 0.6rem; color: #aaa; margin-top: 2px;">🚶 步行 15m</div>
+            </div>
+            <div style="text-align: center; padding: 10px 14px;">
+              <div style="font-size: 1.8rem;">☕</div>
+              <div
+                style="background: #ffb74d; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 4px 0;">
+                4</div>
+              <div style="font-weight: 700; font-size: 0.85rem;">Mag Mile</div>
+              <div style="color: #999; font-size: 0.65rem;">星巴克＋水塔</div>
+              <div style="color: #2ec4b6; font-size: 0.65rem;">15:15-16:00</div>
+            </div>
+            <div style="color: #ccc; font-size: 0.8rem; padding: 0 4px;">
+              <div style="border-top: 2px dashed #ccc; width: 40px; margin: 0 auto;"></div>
+              <div style="font-size: 0.6rem; color: #aaa; margin-top: 2px;">🚶 步行 15m</div>
+            </div>
+            <div style="text-align: center; padding: 10px 14px;">
+              <div style="font-size: 1.8rem;">🎡</div>
+              <div
+                style="background: #e63946; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; margin: 4px 0;">
+                5</div>
+              <div style="font-weight: 700; font-size: 0.85rem;">Navy Pier</div>
+              <div style="color: #999; font-size: 0.65rem;">摩天輪＋夕陽</div>
+              <div style="color: #2ec4b6; font-size: 0.65rem;">16:00-19:00</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GOOGLE MAP EMBED -->
+        <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d95050.67!2d-87.65!3d41.85!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x880e293e5b2ed1e1%3A0x5bcba49e5d7b8a63!2sMuseum%20of%20Science%20and%20Industry%2C%20Chicago%2C%20IL!3m2!1d41.7906!2d-87.5831!4m5!1s0x880e2cbcfe8c041d%3A0x695e138c5e5be638!2sSkydeck%20Chicago%20-%20Willis%20Tower%2C%20Chicago%2C%20IL!3m2!1d41.8789!2d-87.6359!4m5!1s0x880e2ca3e2d94695%3A0x4829f3cc9ca2d0de!2sMillennium%20Park%2C%20Chicago%2C%20IL!3m2!1d41.8826!2d-87.6226!4m5!1s0x880e2b50090a07b5%3A0x4f78e3b2b2dfb3bb!2sNavy%20Pier%2C%20Chicago%2C%20IL!3m2!1d41.8917!2d-87.6063!5e0!3m2!1sen!2sus!4v1709000000000!5m2!1szh-TW!2stw"
+            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div style="margin-top: 10px; text-align: center;">
+          <a href="https://www.google.com/maps/dir/Museum+of+Science+and+Industry,+Chicago,+IL/Willis+Tower,+Chicago,+IL/Millennium+Park,+Chicago,+IL/Starbucks+Reserve+Roastery,+646+N+Michigan+Ave,+Chicago,+IL/Navy+Pier,+Chicago,+IL"
+            target="_blank"
+            style="display: inline-block; background: #2ec4b6; color: #fff; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700; transition: opacity 0.2s;">
+            📍 在 Google Maps 開啟完整觀光路線
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4/30 -->
+    <div class="day-card chicago">
+      <div class="day-date">
+        <div class="day-num">30</div>
+        <div class="day-month">April</div>
+        <div class="day-weekday">THU</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-shop">探索 Day 3 · 觀光＆回程</span>
+        <div class="day-title">🌆 上午觀光 · 傍晚 Outlet · 深夜飛回台灣</div>
+        <ul class="day-items">
+          <li><span class="time-badge">09:00</span> 飯店退房，寄放行李</li>
+          <li><span class="time-badge">09:30</span> <strong>早上觀光：芝加哥建築遊船（Architecture Boat Tour）</strong></li>
+          <li>搭乘芝加哥河遊船，聽導覽員解說沿岸超過 40 棟經典建築（約 75 分鐘）</li>
+          <li>被評為芝加哥排名第一的觀光體驗！</li>
+          <li><span class="time-badge">11:30</span> 下船後可散步經過 <strong>Art Institute of Chicago</strong>（芝加哥藝術學院）外觀拍照</li>
+          <li><span class="time-badge">12:00</span> 午餐：<strong>Lou Malnati's</strong> — 另一家經典芝加哥深盤披薩名店</li>
+          <li><span class="time-badge">13:30</span> <strong>下午自由活動</strong>：可選擇再逛 Millennium Park、書店、咖啡廳，或補買伴手禮</li>
+          <li><span class="time-badge">15:30</span> 取回行李，搭遊覽車前往 <strong>Fashion Outlets of Chicago</strong></li>
+          <li><span class="time-badge">16:00</span> <strong>Fashion Outlets of Chicago</strong> — 位於 ORD
+            機場附近（Rosemont），交通便利！</li>
+          <li>Nike Factory、Adidas Outlet、Coach、Michael Kors、Tommy Hilfiger 等品牌</li>
+          <li>還有 H&M、Forever 21、Converse 等學生最愛品牌</li>
+          <li><span class="time-badge">19:00</span> 結束購物，搭遊覽車前往 O'Hare 機場（約 10 分鐘車程）</li>
+          <li><span class="time-badge">19:30</span> 抵達 ORD 機場，辦理登機、托運行李</li>
+          <li>安檢後在免稅商店最後採購：Garrett Popcorn 芝加哥爆米花 🍿</li>
+          <li><span class="time-badge">23:30</span> 搭乘夜間直飛航班飛回台灣（飛行約 16 小時）</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">🛍️</span> Fashion Outlets of Chicago 距離 ORD 機場僅 10 分鐘車程，是回程前最棒的購物站！建議預留 2.5~3 小時逛街。
+        </div>
+
+        <!-- DAY 30 GOOGLE MAP -->
+        <div style="margin-top: 16px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(0,0,0,0.08);">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d95000.0!2d-87.7!3d41.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x880e2c9f18de59a7%3A0x16bb807e498c2fa5!2sChicago%20Riverwalk%2C%20Chicago%2C%20IL!3m2!1d41.8882!2d-87.6186!4m5!1s0x880fb629211d9457%3A0xbb577a12e5e6dce9!2sFashion%20Outlets%20of%20Chicago%2C%20Rosemont%2C%20IL!3m2!1d41.9867!2d-87.8693!5e0!3m2!1sen!2sus!4v1709000000000!5m2!1szh-TW!2stw"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div style="margin-top: 10px; text-align: center;">
+          <a href="https://www.google.com/maps/dir/Chicago+Riverwalk,+Chicago,+IL/Fashion+Outlets+of+Chicago,+5220+Fashion+Outlets+Way,+Rosemont,+IL/O'Hare+International+Airport,+Chicago,+IL"
+            target="_blank"
+            style="display: inline-block; background: #2ec4b6; color: #fff; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-size: 0.85rem; font-weight: 700;">
+            📍 在 Google Maps 開啟市區→Outlet→機場路線
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 第四階段：滿載而歸 ========== -->
+    <div class="phase-divider">
+      <span class="phase-label">🛬 第四階段 · 滿載而歸</span>
+    </div>
+
+    <div class="day-card return">
+      <div class="day-date">
+        <div class="day-num">01</div>
+        <div class="day-month">May</div>
+        <div class="day-weekday">FRI</div>
+      </div>
+      <div class="day-content">
+        <span class="day-tag tag-return">返抵國門</span>
+        <div class="day-title">🇹🇼 平安降落台灣</div>
+        <ul class="day-items">
+          <li>跨越國際換日線，班機平安降落台灣桃園國際機場</li>
+          <li>5/1（五）或 5/2（六）抵達（視回程航班時間而定）</li>
+          <li>通關、領取行李與機器人航空箱</li>
+          <li>解散各自返家，帶著滿滿的回憶、獎牌與戰利品凱旋！</li>
+        </ul>
+        <div class="note-box">
+          <span class="note-icon">🏆</span> 這趟旅程不只是一場比賽，更是一堂跨越半個地球的 STEM 教育課。感謝每一位支持團隊的家長與老師！
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TIPS SECTION -->
+  <div style="background: #f8f9fa; padding: 60px 20px;">
+    <div class="section-header">
+      <h2>旅遊實用提示</h2>
+      <div class="line"></div>
+    </div>
+    <div class="tips-section">
+      <div class="tip-card">
+        <div class="tip-icon">🚌</div>
+        <div class="tip-title">遊覽車接駁</div>
+        <div class="tip-text">全程搭乘遊覽車，輕鬆搭載全隊機器人設備與行李。聖路易斯 ↔ 芝加哥沿 I-55 約 5 小時車程，途中可在休息站補給。底層行李艙可放航空箱。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🏨</div>
+        <div class="tip-title">住宿推薦</div>
+        <div class="tip-text">聖路易斯比賽期間建議訂靠近 America's Center 的飯店，步行可達會場最方便。芝加哥推薦 Loop 或 Magnificent Mile 區域。早訂早省！</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">💰</div>
+        <div class="tip-title">預算規劃</div>
+        <div class="tip-text">建議準備每人每天 $100 USD 生活費（含餐飲、門票、零食）。Fashion Outlets 血拼建議另備預算。美國餐廳習慣給小費 15-20%。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">📱</div>
+        <div class="tip-title">必備 App</div>
+        <div class="tip-text">Google Maps（離線下載）、OpenTable（餐廳訂位）、RobotEvents.com（比賽資訊與即時排名）、Yelp（找當地美食評價）。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">🌤️</div>
+        <div class="tip-title">四月天氣</div>
+        <div class="tip-text">聖路易斯 4-5 月氣溫約 15-25°C，可能有午後陣雨。建議帶輕薄外套與雨傘。芝加哥湖邊風較大，多備一件防風外套。</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-icon">⚡</div>
+        <div class="tip-title">機器人設備</div>
+        <div class="tip-text">電池充電器記得帶美規轉接頭（台灣插頭在美國可直用，但確認電壓）。備用零件及工具套組齊全。航空箱需符合航空公司規範。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    VEX V5 Robotics World Championship 2026 · Taiwan Team · 台灣隊加油！🏆
+  </footer>
+
+  <script>
+    function toggleDetail(el) {
+      el.classList.toggle('open');
+      const detail = el.closest('li').querySelector('.attraction-detail');
+      if (detail) {
+        detail.classList.toggle('open');
+      }
+    }
+  </script>
+
+</body>
+
+</html>
