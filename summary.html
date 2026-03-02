@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 VEX V5 聖路易斯世界賽 - 國中組精簡行程表</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --red: #e63946;
+            --gold: #f4a261;
+            --teal: #2ec4b6;
+            --gray: #636e72;
+            --accent: #ffb74d;
+            --purple: #7b2ff7;
+            --green: #4ecdc4;
+            --bg-main: #f0f2f5;
+            --text-primary: #1a1a2e;
+            --text-secondary: #555;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #eee;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: var(--teal);
+        }
+
+        .header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--teal);
+            color: var(--teal);
+            background: transparent;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            padding: 18px 16px;
+            text-align: left;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #888;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .col-date {
+            width: 15%;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .col-location {
+            width: 20%;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        .col-detail {
+            width: 65%;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-right: 6px;
+            color: #fff;
+        }
+
+        .t-flight {
+            background: var(--gray);
+        }
+
+        .t-bus {
+            background: var(--teal);
+        }
+
+        .t-comp {
+            background: var(--red);
+        }
+
+        .t-prep {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .t-play {
+            background: var(--purple);
+        }
+
+        tbody tr:hover {
+            background: #fafbfc;
+        }
+
+        .hl-red {
+            color: var(--red);
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            th,
+            td {
+                padding: 12px 8px;
+            }
+
+            .col-date,
+            .col-location {
+                font-size: 0.85rem;
+            }
+
+            .col-detail {
+                font-size: 0.85rem;
+            }
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #eee;
+                border-radius: 8px;
+                margin-bottom: 16px;
+                padding: 10px;
+                background: #fff;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #f5f5f5;
+                position: relative;
+                padding-left: 30%;
+            }
+
+            td:before {
+                position: absolute;
+                top: 12px;
+                left: 10px;
+                width: 25%;
+                padding-right: 10px;
+                white-space: nowrap;
+                font-weight: 700;
+                color: #999;
+                font-size: 0.75rem;
+            }
+
+            td:nth-of-type(1):before {
+                content: "日期";
+            }
+
+            td:nth-of-type(2):before {
+                content: "城市";
+            }
+
+            td:nth-of-type(3):before {
+                content: "重點行程";
+            }
+
+            td:last-child {
+                border-bottom: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VEX V5 國中組世界賽</h1>
+            <p>10 天精簡行程表 (4/22 - 5/1)</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html" class="btn btn-outline">⬅ 返回詳細行程表</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="col-date">日期</th>
+                    <th class="col-location">城市</th>
+                    <th class="col-detail">重點行程</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-date">4/22 (三)</td>
+                    <td class="col-location">台北 → 芝加哥</td>
+                    <td class="col-detail">
+                        <span class="tag t-flight">出發日</span> 桃園達乘早班機前往美國<br>
+                        晚上 21:00 抵達芝加哥 ORD 機場，入住周邊飯店
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">4/23 (四)</td>
+                    <td class="col-location">芝加哥 → 聖路易斯</td>
+                    <td class="col-detail">
+                        <span class="tag t-bus">移動日</span> 早上搭遊覽車前往聖路易斯 (~5hr)<br>
+                        下午熟悉比賽會場、機器人開箱檢查、赴五金行採買備品
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">4/24 (五)</td>
+                    <td class="col-location">聖路易斯</td>
+                    <td class="col-detail">
+                        <span class="tag t-prep">賽前準備</span> 前往會場報到、<strong class="hl-red">機器人檢錄
+                            (Inspection)</strong><br>
+                        練習場測試、程式與機構最終調校
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date hl-red">4/25 (六)</td>
+                    <td class="col-location">聖路易斯</td>
+                    <td class="col-detail">
+                        <span class="tag t-comp">比賽 D1</span> 大會開幕典禮<br>
+                        <strong>正式資格賽 (Qualification Matches)</strong> 開打
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date hl-red">4/26 (日)</td>
+                    <td class="col-location">聖路易斯</td>
+                    <td class="col-detail">
+                        <span class="tag t-comp">比賽 D2</span> 持續進行資格賽<br>
+                        <strong>Robot Skills Challenge</strong> 競賽<br>
+                        傍晚進行<strong>聯盟選拔 (Alliance Selection)</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date hl-red">4/27 (一)</td>
+                    <td class="col-location">聖路易斯</td>
+                    <td class="col-detail">
+                        <span class="tag t-comp">比賽 D3</span> <strong>淘汰賽 (Elimination Matches)</strong> 決戰<br>
+                        頒獎典禮與閉幕，收拾整理機器人航空箱🏆
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">4/28 (二)</td>
+                    <td class="col-location">聖路易斯 → 芝加哥</td>
+                    <td class="col-detail">
+                        <span class="tag t-play">觀光</span> 上午：城市博物館 (City Museum) 迷宮探險<br>
+                        <span class="tag t-bus">移動</span> 中午：搭遊覽車經 Springfield 返芝加哥，可訪林肯圖書館<br>
+                        晚上：芝加哥深盤披薩🍕
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">4/29 (三)</td>
+                    <td class="col-location">芝加哥市區</td>
+                    <td class="col-detail">
+                        <span class="tag t-play">科學日</span> 白天：芝加哥科學與工業博物館 (MSI) 參觀<br>
+                        傍晚：Millennium Park 大豆合影<br>
+                        晚上：Willis Tower Skydeck (103F 玻璃陽台) 欣賞夜景🌃
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">4/30 (四)</td>
+                    <td class="col-location">芝加哥 → 台北</td>
+                    <td class="col-detail">
+                        <span class="tag t-play">買爆日</span> 早上：芝加哥河建築遊船 (Boat Tour) <br>
+                        下午：Fashion Outlets 購物🛍️ (車程距機場僅10分)<br>
+                        <span class="tag t-flight">返程日</span> 晚上搭乘夜間航班啟程返台
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-date">5/1 (五)</td>
+                    <td class="col-location">台北</td>
+                    <td class="col-detail">
+                        <span class="tag t-flight">抵達</span> 航班平安抵達桃園機場<br>
+                        帶著滿滿回憶凱旋歸國 🛬
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
