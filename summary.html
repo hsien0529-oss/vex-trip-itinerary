@@ -263,6 +263,54 @@
             <a href="index.html" class="btn btn-outline">⬅ 返回詳細行程表</a>
         </div>
 
+        <!-- 航班資訊 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 30px;">
+            <!-- 去程 -->
+            <div
+                style="border: 2px solid var(--teal); border-radius: 12px; padding: 20px; background: linear-gradient(135deg, rgba(46,196,182,0.06), rgba(78,205,196,0.03));">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+                    <span style="font-size: 1.3rem;">🛫</span>
+                    <strong style="font-size: 1rem; color: var(--teal);">去程航班</strong>
+                </div>
+                <div style="font-size: 0.85rem; color: #555; line-height: 1.8;">
+                    <div><strong style="color: var(--text-primary);">長榮航空 BR56</strong></div>
+                    <div>📅 4/22（三）</div>
+                    <div>🇹🇼 TPE 桃園 T2 → 🇺🇸 ORD 芝加哥 T5</div>
+                    <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                        <span
+                            style="background: var(--teal); color: #fff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 0.85rem;">20:00</span>
+                        <span style="color: #ccc;">✈ ─────</span>
+                        <span
+                            style="background: var(--teal); color: #fff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 0.85rem;">21:00</span>
+                    </div>
+                    <div style="color: #999; font-size: 0.75rem; margin-top: 4px;">飛行約 13~14 小時 · Boeing 777-300ER ·
+                        同日抵達</div>
+                </div>
+            </div>
+            <!-- 回程 -->
+            <div
+                style="border: 2px solid var(--gold); border-radius: 12px; padding: 20px; background: linear-gradient(135deg, rgba(244,162,97,0.06), rgba(255,183,77,0.03));">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+                    <span style="font-size: 1.3rem;">🛬</span>
+                    <strong style="font-size: 1rem; color: var(--gold);">回程航班</strong>
+                </div>
+                <div style="font-size: 0.85rem; color: #555; line-height: 1.8;">
+                    <div><strong style="color: var(--text-primary);">長榮航空 BR55</strong></div>
+                    <div>📅 4/30（四）</div>
+                    <div>🇺🇸 ORD 芝加哥 T5 → 🇹🇼 TPE 桃園 T2</div>
+                    <div style="margin-top: 8px; display: flex; align-items: center; gap: 8px;">
+                        <span
+                            style="background: var(--gold); color: #fff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 0.85rem;">23:30</span>
+                        <span style="color: #ccc;">✈ ─────</span>
+                        <span
+                            style="background: var(--gold); color: #fff; padding: 3px 10px; border-radius: 4px; font-weight: 700; font-size: 0.85rem;">05:30+2</span>
+                    </div>
+                    <div style="color: #999; font-size: 0.75rem; margin-top: 4px;">飛行約 16 小時 · Boeing 777-300ER ·
+                        5/2（六）早上抵達</div>
+                </div>
+            </div>
+        </div>
+
         <table>
             <thead>
                 <tr>
@@ -276,8 +324,8 @@
                     <td class="col-date">4/22 (三)</td>
                     <td class="col-location">台北 → 芝加哥</td>
                     <td class="col-detail">
-                        <span class="tag t-flight">出發日</span> 桃園達乘早班機前往美國<br>
-                        晚上 21:00 抵達芝加哥 ORD 機場，入住周邊飯店
+                        <span class="tag t-flight">出發日</span> 搭乘長榮 BR56 晚間 20:00 直飛芝加哥<br>
+                        同日晚上 21:00 抵達芝加哥 ORD 機場，入住周邊飯店
                     </td>
                 </tr>
                 <tr>
